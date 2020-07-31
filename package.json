@@ -19,8 +19,12 @@
     "template",
     "es6"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CYLee2020/ejs-any-loader"
+  },
   "license": "MIT",
   "main": "index.js",
   "name": "ejs-any-loader",
-  "version": "0.0.2"
+  "version": "0.0.3"
 }
