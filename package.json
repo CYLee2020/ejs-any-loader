@@ -1,0 +1,26 @@
+{
+  "bundleDependencies": false,
+  "dependencies": {
+    "ejs": "^2",
+    "html-minifier": "^4",
+    "loader-utils": "^2",
+    "merge": "^1.2.1"
+  },
+  "deprecated": false,
+  "description": "Compiling any files by EJS in webpack loader",
+  "devDependencies": {
+    "webpack": "^4",
+    "webpack-cli": "^3"
+  },
+  "keywords": [
+    "ejs",
+    "webpack",
+    "loader",
+    "template",
+    "es6"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "ejs-any-loader",
+  "version": "0.0.2"
+}

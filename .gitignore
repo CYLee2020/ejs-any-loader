@@ -1,0 +1,5 @@
+# ignore target folder
+dist/
+node_modules/
+**/.DS_Store
+.vscode
