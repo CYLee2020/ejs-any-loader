@@ -13,49 +13,64 @@ Options is same of EJS Options,you can pass your custom options in options's opt
 ## Webpack Config
 
 ```javascript
-module: {
-  rules: [{
-    test: /\.html$/,
-    use: {
-      loader: 'ejs-any-loader',
-      options: {
-        htmlmin: true,
-        htmlminOptions: {
-          removeComments: true
+module.exports = function(env) {
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.html$/,
+          use: [
+            "html-loader",
+            {
+              loader: "ejs-any-loader",
+              options: {
+                htmlmin: true,
+                htmlminOptions: {
+                  removeComments: true
+                },
+                options: {
+                  title: "title",
+                  env: env
+                }
+              }
+            }
+          ]
         },
-        options:{
-          ...
+        {
+          test: /\.vue$/,
+          use: [
+            "vue-loader",
+            {
+              loader: "ejs-any-loader",
+              options: {
+                options: {
+                  title: "title",
+                  env: env
+                }
+              }
+            }
+          ]
         }
-      }
+      ]
     }
-  },{
-    test: /\.vue$/,
-    use: {
-      loader: 'ejs-any-loader',
-      options: {
-        htmlmin: true,
-        htmlminOptions: {
-          removeComments: true
-        },
-        options:{
-          ...
-        }
-      }
-    }
-  },{
-    test: /\.jsx$/,
-    use: {
-      loader: 'ejs-any-loader',
-      options: {
-        htmlmin: true,
-        htmlminOptions: {
-          removeComments: true
-        },
-        options:{
-          ...
-        }
-      }
-    }
-  }]
-}
+  };
+};
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1"
+    />
+    <% if (env.production) {%>
+    <link href="style.css" rel="stylesheet" />
+    <%} %>
+  </head>
+  <body></body>
+</html>
 ```
